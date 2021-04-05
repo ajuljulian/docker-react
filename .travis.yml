@@ -1,0 +1,10 @@
+sudo: required
+services:
+    - docker
+
+
+before_install:
+    - docker build -t ajuljulian/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run -e CI=true ajuljulian/docker-react npm run test
